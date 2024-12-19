@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASTA Inventory</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="hero">
+      <div class="hero-text">
+        <h1>ASTA Inventory</h1>
+        <p>Mengelola barang inventaris dengan mudah dan aman</p>
+        <a href="#features" class="btn-hero">Jelajahi</a>
+      </div>
+    </header>
+
+    <!-- Statistik Section -->
+    <section class="stats">
+      <div class="stat" data-aos="fade-up">
+        <h3>150+</h3>
+        <p>Barang Tersedia</p>
+      </div>
+      <div class="stat" data-aos="fade-down">
+        <h3>50+</h3>
+        <p>Peminjam Aktif</p>
+      </div>
+      <div class="stat" data-aos="fade-up">
+        <h3>4</h3>
+        <p>Kejuruan</p>
+      </div>
+      <div class="stat" data-aos="fade-down">
+        <h3>24/7</h3>
+        <p>Pelayanan</p>
+      </div>
+    </section>
+
+    <!-- Fitur Utama -->
+    <section id="jurusan" class="jurusan">
+      <h2 data-aos="fade-up">Pilih Jurusan</h2>
+      <div class="jurusan-container">
+        <div class="jurusan-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="invenrpl.png" alt="RPL" />
+          <h3>Rekayasa Perangkat Lunak (RPL)</h3>
+          <a href="rpl.html" class="btn-jurusan">Lihat Inventori</a>
+        </div>
+        <div class="jurusan-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="inven tkj.png" alt="TKJ" />
+          <h3>Teknik Komputer Jaringan (TKJ)</h3>
+          <a href="tkj.html" class="btn-jurusan">Lihat Inventori</a>
+        </div>
+        <div class="jurusan-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="inven metro.png" alt="Metro" />
+          <h3>Teknik Mekatronika (Metro)</h3>
+          <a href="metro.html" class="btn-jurusan">Lihat Inventori</a>
+        </div>
+        <div class="jurusan-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="elin.png" alt="Elin" />
+          <h3>Elektronika Industri (Elin)</h3>
+          <a href="elin.html" class="btn-jurusan">Lihat Inventori</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar Komentar -->
+
+    <section class="comments-section">
+      <h2>Berikan Komentar, Kritik, dan Saran</h2>
+      <div class="comment-form">
+        <textarea
+          id="comment-input"
+          placeholder="Tuliskan komentar Anda di sini..."
+          rows="4"
+        ></textarea>
+        <button class="btn-submit" onclick="submitComment()">
+          Kirim Komentar
+        </button>
+      </div>
+
+      <div class="comment-list" id="comment-list"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 ASTA Inventory. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+      function submitComment() {
+        // Ambil teks dari textarea
+        const commentInput = document.getElementById("comment-input");
+        const commentText = commentInput.value;
+
+        // Cek apakah komentar kosong
+        if (commentText.trim() === "") {
+          alert("Komentar tidak boleh kosong!");
+          return;
+        }
+
+        // Buat elemen komentar baru
+        const commentItem = document.createElement("div");
+        commentItem.classList.add("comment-item");
+        commentItem.textContent = commentText;
+
+        // Tambahkan komentar ke dalam daftar komentar
+        const commentList = document.getElementById("comment-list");
+        commentList.appendChild(commentItem);
+
+        // Bersihkan input setelah komentar dikirim
+        commentInput.value = "";
+      }
+    </script>
+  </body>
+</html>

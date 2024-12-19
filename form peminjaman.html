@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Peminjaman Barang</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #fef9f9, #edf7f6);
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-container,
+      .table-container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 90%;
+        max-width: 600px;
+        margin-bottom: 30px;
+      }
+      h1,
+      h2 {
+        color: #82c9c0;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        outline: none;
+      }
+      button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #82c9c0;
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background: #6bb1a8;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      table thead {
+        background: #82c9c0;
+        color: white;
+      }
+      table th,
+      table td {
+        text-align: center;
+        padding: 12px;
+        border: 1px solid #ddd;
+      }
+      .action-buttons button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin: 2px;
+        transition: background 0.3s ease;
+      }
+      .edit-button {
+        background-color: #ffd98e;
+        color: white;
+      }
+      .delete-button {
+        background-color: #f28c8c;
+        color: white;
+      }
+      .print-button {
+        background-color: #82c9c0;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Form Peminjaman Barang</h1>
+      <form id="peminjamanForm">
+        <label for="name">Nama Peminjam</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Masukkan Nama Peminjam"
+          required
+        />
+        <label for="item">Barang yang Dipinjam</label>
+        <input
+          type="text"
+          id="item"
+          placeholder="Masukkan Barang yang Dipinjam"
+          required
+        />
+        <label for="start-time">Waktu Peminjaman</label>
+        <input type="datetime-local" id="start-time" required />
+        <label for="end-time">Waktu Pengembalian</label>
+        <input type="datetime-local" id="end-time" required />
+        <button type="button" id="submitButton">Tambah Data</button>
+      </form>
+    </div>
+
+    <div class="table-container">
+      <h2>Daftar Peminjaman</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Barang</th>
+            <th>Waktu Pinjam</th>
+            <th>Waktu Kembali</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let dataPeminjaman =
+        JSON.parse(localStorage.getItem("dataPeminjaman")) || [];
+      let idCounter =
+        dataPeminjaman.length > 0
+          ? dataPeminjaman[dataPeminjaman.length - 1].id + 1
+          : 1;
+
+      function saveToLocalStorage() {
+        localStorage.setItem("dataPeminjaman", JSON.stringify(dataPeminjaman));
+      }
+
+      function renderTable() {
+        const tableBody = document.getElementById("dataTable");
+        tableBody.innerHTML = "";
+
+        dataPeminjaman.forEach((item, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = ` 
+            <td>${index + 1}</td>
+            <td>${item.nama}</td>
+            <td>${item.barang}</td>
+            <td>${item.waktuPinjam}</td>
+            <td>${item.waktuKembali}</td>
+            <td class="action-buttons">
+              <button class="edit-button" onclick="editData(${
+                item.id
+              })">Edit</button>
+              <button class="delete-button" onclick="deleteData(${
+                item.id
+              })">Hapus</button>
+              <button class="print-button" onclick="printData(${
+                item.id
+              })">Cetak Struk</button>
+            </td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+
+      function addData() {
+        const nama = document.getElementById("name").value;
+        const barang = document.getElementById("item").value;
+        const waktuPinjam = document.getElementById("start-time").value;
+        const waktuKembali = document.getElementById("end-time").value;
+
+        if (nama && barang && waktuPinjam && waktuKembali) {
+          dataPeminjaman.push({
+            id: idCounter++,
+            nama,
+            barang,
+            waktuPinjam,
+            waktuKembali,
+          });
+          saveToLocalStorage();
+          renderTable();
+          document.getElementById("peminjamanForm").reset();
+        } else {
+          alert("Harap isi semua field!");
+        }
+      }
+
+      function deleteData(id) {
+        dataPeminjaman = dataPeminjaman.filter((item) => item.id !== id);
+        saveToLocalStorage();
+        renderTable();
+      }
+
+      function printData(id) {
+        const item = dataPeminjaman.find((d) => d.id === id);
+        if (item) {
+          const queryParams = new URLSearchParams(item).toString();
+          window.open(`struk.html?${queryParams}`, "_blank");
+        }
+      }
+
+      function editData(id) {
+        const item = dataPeminjaman.find((d) => d.id === id);
+        if (item) {
+          // Isi form dengan data yang ingin diedit
+          document.getElementById("name").value = item.nama;
+          document.getElementById("item").value = item.barang;
+          document.getElementById("start-time").value = item.waktuPinjam;
+          document.getElementById("end-time").value = item.waktuKembali;
+
+          // Ganti tombol "Tambah Data" menjadi "Perbarui Data"
+          document.getElementById("submitButton").textContent = "Perbarui Data";
+
+          // Ganti aksi tombol menjadi fungsi update
+          document.getElementById("submitButton").onclick = function () {
+            updateData(id);
+          };
+        }
+      }
+
+      function updateData(id) {
+        const nama = document.getElementById("name").value;
+        const barang = document.getElementById("item").value;
+        const waktuPinjam = document.getElementById("start-time").value;
+        const waktuKembali = document.getElementById("end-time").value;
+
+        if (nama && barang && waktuPinjam && waktuKembali) {
+          const updatedData = dataPeminjaman.map((item) =>
+            item.id === id
+              ? { ...item, nama, barang, waktuPinjam, waktuKembali }
+              : item
+          );
+          dataPeminjaman = updatedData;
+          saveToLocalStorage();
+          renderTable();
+          document.getElementById("peminjamanForm").reset();
+          document.getElementById("submitButton").textContent = "Tambah Data";
+          document.getElementById("submitButton").onclick = addData;
+        } else {
+          alert("Harap isi semua field!");
+        }
+      }
+
+      document
+        .getElementById("submitButton")
+        .addEventListener("click", addData);
+
+      renderTable();
+    </script>
+  </body>
+</html>

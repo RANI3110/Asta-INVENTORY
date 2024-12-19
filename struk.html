@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Struk Peminjaman</title>
+    <style>
+      /* Gaya Struk */
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fef9f9;
+        color: #333;
+        padding: 20px;
+        text-align: center;
+      }
+      .struk-container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .struk-header {
+        font-size: 1.5rem;
+        color: #82c9c0;
+        margin-bottom: 20px;
+      }
+      .struk-content {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+      .btn-container {
+        margin-top: 20px;
+      }
+      .btn-back,
+      .btn-feedback {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        background-color: #82c9c0;
+        color: white;
+        margin: 5px;
+      }
+      .btn-back:hover,
+      .btn-feedback:hover {
+        background-color: #6bb1a8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="struk-container">
+      <h1 class="struk-header">Struk Peminjaman Barang</h1>
+      <div class="struk-content">
+        <p><strong>Nama Peminjam:</strong> <span id="nama"></span></p>
+        <p><strong>Barang yang Dipinjam:</strong> <span id="barang"></span></p>
+        <p><strong>Waktu Pinjam:</strong> <span id="waktuPinjam"></span></p>
+        <p>
+          <strong>Waktu Pengembalian:</strong> <span id="waktuKembali"></span>
+        </p>
+      </div>
+
+      <div class="btn-container">
+        <!-- Tombol Kritik dan Saran mengarah ke Google Form -->
+        <button
+          class="btn-feedback"
+          onclick="window.location.href='https://forms.gle/d1FyUC3t5yeHjfn97'"
+        >
+          Kritik dan Saran
+        </button>
+        <button class="btn-back" onclick="window.location.href='index.html'">
+          Kembali ke Beranda
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Fungsi untuk mendapatkan parameter dari URL
+      function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+          nama: urlParams.get("nama"),
+          barang: urlParams.get("barang"),
+          waktuPinjam: urlParams.get("waktuPinjam"),
+          waktuKembali: urlParams.get("waktuKembali"),
+        };
+      }
+
+      // Mengambil data dari query params dan menampilkan di halaman
+      const data = getQueryParams();
+      document.getElementById("nama").textContent =
+        data.nama || "Data tidak ditemukan";
+      document.getElementById("barang").textContent =
+        data.barang || "Data tidak ditemukan";
+      document.getElementById("waktuPinjam").textContent =
+        data.waktuPinjam || "Data tidak ditemukan";
+      document.getElementById("waktuKembali").textContent =
+        data.waktuKembali || "Data tidak ditemukan";
+    </script>
+  </body>
+</html>

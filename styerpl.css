@@ -1,0 +1,139 @@
+/* Reset dan Basic Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f0f8ff; /* Soft pastel blue */
+  color: #333; /* Dark text color */
+  line-height: 1.6;
+}
+
+/* Header Section */
+.header-box {
+  background: #ffb6c1; /* Pastel pink */
+  text-align: center;
+  padding: 60px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.header-box h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  color: #8e44ad; /* Soft purple */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Section */
+.table-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabel Styles */
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table th, .inventory-table td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #ddd; /* Light gray border */
+}
+
+.inventory-table th {
+  background-color: #ffecb3; /* Soft yellow */
+  color: #333;
+}
+
+.inventory-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.inventory-table tbody tr:hover {
+  background-color: #f9e79f; /* Light yellow hover effect */
+  transform: scale(1.05); /* Slight scale-up effect */
+}
+
+.inventory-table tbody tr:nth-child(odd) {
+  background-color: #f2f3f4; /* Light gray for odd rows */
+}
+
+.inventory-table tbody tr:nth-child(even) {
+  background-color: #e8f8f5; /* Soft mint for even rows */
+}
+
+/* Item Image Styling */
+.item-image {
+  max-width: 50px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Section */
+.form-section {
+  text-align: center;
+  margin-top: 40px;
+  background: #e8f8f5; /* Soft mint */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h3 {
+  font-size: 2rem;
+  color: #3498db; /* Light blue */
+}
+
+.form-section p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #666; /* Soft gray text */
+}
+
+.form-section .btn {
+  padding: 12px 35px;
+  background: #f39c12; /* Pastel orange */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+.form-section .btn:hover {
+  background: #e67e22; /* Darker orange on hover */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #ffb6c1; /* Pastel pink footer */
+  color: #fff;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+footer p {
+  font-size: 1rem;
+  color: #f8f9f9; /* Light text for footer */
+}

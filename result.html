@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil Peminjaman</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(to right, #f9f9f9, #f1e0e6);
+        color: #4a4a4a;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .result-container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 380px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .result-container:hover {
+        transform: scale(1.05);
+      }
+      .result-container h1 {
+        font-size: 2rem;
+        color: #ff79c6;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      .clock {
+        font-size: 1.2rem;
+        color: #f1c6c6;
+        margin-bottom: 20px;
+      }
+      .result-container p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: #333;
+      }
+      .result-container p span {
+        color: #ff79c6;
+        font-weight: 600;
+      }
+      .button {
+        margin-top: 20px;
+        padding: 12px 20px;
+        background-color: #ff79c6;
+        color: white;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        background-color: #d957a1;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="result-container">
+      <h1>Hasil Peminjaman</h1>
+      <div class="clock" id="clock"></div>
+      <p><strong>Nama Peminjam:</strong> <span id="name"></span></p>
+      <p><strong>Barang:</strong> <span id="item"></span></p>
+      <p><strong>Waktu Peminjaman:</strong> <span id="start-time"></span></p>
+      <p><strong>Waktu Pengembalian:</strong> <span id="end-time"></span></p>
+      <a href="index.html" class="button">Kembali ke Formulir</a>
+    </div>
+
+    <script>
+      // Function to get URL parameters and display the values
+      function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get("name");
+        const item = urlParams.get("item");
+        const startTime = urlParams.get("startTime");
+        const endTime = urlParams.get("endTime");
+
+        document.getElementById("name").textContent = name || "Tidak tersedia";
+        document.getElementById("item").textContent = item || "Tidak tersedia";
+        document.getElementById("start-time").textContent =
+          startTime || "Tidak tersedia";
+        document.getElementById("end-time").textContent =
+          endTime || "Tidak tersedia";
+      }
+
+      // Clock functionality
+      function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString();
+        document.getElementById("clock").textContent = time;
+      }
+
+      // Initialize
+      setInterval(updateClock, 1000); // Update clock every second
+      updateClock(); // Initialize clock
+      getQueryParams(); // Get query parameters and display them
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; 
+    color: #4b4b4b; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  .header-box {
+    background-color: #f4a300; 
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .header-box h1 {
+    margin: 0;
+    color: white;
+    font-size: 36px;
+  }
+  
+  /* Table Section */
+  .table-container {
+    margin: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f4a300;
+  }
+  
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .inventory-table th, .inventory-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .inventory-table th {
+    background-color: #f4a300; 
+    color: white;
+  }
+  
+  .inventory-table td {
+    background-color: #fafafa;
+  }
+  
+  .inventory-table tr:hover {
+    background-color: #fffbcc;
+  }
+  
+  /* Form Section */
+  .form-section {
+    margin: 20px 40px;
+    text-align: center;
+  }
+  
+  .form-section h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .form-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    background-color: #ffb8b8; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #ff7d7d; 
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f4a300; 
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
+  

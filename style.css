@@ -1,0 +1,230 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5; /* Ganti dengan warna background pastel */
+  color: #333;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Section */
+.hero {
+  width: 100%;
+  background-color: #e0bbd7; /* Latar belakang pastel lavender */
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  border-bottom: 2px solid #d1a7d3;
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #5f4b8b; /* Ungu pastel */
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #6a4e9f; /* Ungu pastel lebih muda */
+}
+
+.btn-hero {
+  background-color: #ffb6b9; /* Pastel pink */
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero:hover {
+  background-color: #ff8e8e; /* Pink pastel lebih gelap */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Statistik Section */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 60px 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.stat {
+  background-color: #f3e1f3; /* Background pastel lavender */
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat h3 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #6a4e9f; /* Ungu pastel */
+}
+
+.stat p {
+  color: #8e7cc3; /* Ungu pastel lebih muda */
+}
+
+/* Jurusan Section */
+.jurusan {
+  width: 100%;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.jurusan h2 {
+  font-size: 3em;
+  margin-bottom: 40px;
+  color: #5f4b8b; /* Ungu pastel */
+  font-weight: 700;
+}
+
+.jurusan-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.jurusan-card {
+  background-color: #fbe4f5; /* Pastel pink background */
+  border-radius: 15px;
+  padding: 30px;
+  width: 23%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.jurusan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.jurusan-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.jurusan-card img:hover {
+  transform: scale(1.1);
+}
+
+.jurusan-card h3 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  font-weight: 700;
+  color: #5f4b8b; /* Ungu pastel */
+}
+
+.btn-jurusan {
+  background-color: #f3a1c4; /* Pastel pink */
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 50px;
+  margin-top: 15px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-jurusan:hover {
+  background-color: #ff8e8e; /* Pink pastel lebih gelap */
+}
+
+/* Komentar Section */
+.comments-section {
+  width: 100%;
+  background-color: #fbe4f5; /* Pastel pink background */
+  padding: 60px 0;
+  text-align: center;
+}
+
+.comments-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #5f4b8b; /* Ungu pastel */
+  font-weight: 700;
+}
+
+.comment-form {
+  margin-bottom: 40px;
+}
+
+#comment-input {
+  width: 60%;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  resize: none;
+  background-color: #f3e1f3; /* Lavender pastel background */
+  color: #6a4e9f; /* Ungu pastel */
+}
+
+.btn-submit {
+  background-color: #f3a1c4; /* Pastel pink */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #ff8e8e; /* Pink pastel lebih gelap */
+}
+
+.comment-list {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.comment-item {
+  background-color: #f3e1f3; /* Lavender pastel background */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  color: #6a4e9f; /* Ungu pastel */
+  font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+}

@@ -1,0 +1,189 @@
+/* Reset Margin dan Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style Umum */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Pastel pink to light pink */
+    color: #333;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    animation: fadeIn 1s ease-out; /* Efek Fade In pada halaman */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Header */
+  .header-box {
+    background-color: #f8bbd0; /* Warna pastel pink */
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #d81b60; /* Warna pink cerah */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+    animation: slideInFromTop 0.5s ease-out; /* Efek animasi pada judul */
+  }
+  
+  @keyframes slideInFromTop {
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Tabel Inventaris */
+  .table-container {
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 25px;
+    animation: fadeInUp 1s ease-out; /* Animasi fadeIn dan gerakan naik */
+    margin-bottom: 60px; /* Menambahkan ruang bawah untuk footer */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h2.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ab47bc; /* Warna ungu pastel */
+    margin-bottom: 20px;
+  }
+  
+  /* Style Tabel */
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .inventory-table th,
+  .inventory-table td {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .inventory-table th {
+    background-color: #ba68c8; /* Warna ungu pastel untuk header tabel */
+    color: white;
+    font-size: 1.1rem;
+  }
+  
+  .inventory-table td {
+    background-color: #f3e5f5; /* Warna pastel ungu untuk sel tabel */
+    color: #5e35b1;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Efek Hover pada Tabel */
+  .inventory-table td:hover {
+    background-color: #ab47bc; /* Warna hover lebih gelap */
+    color: white;
+    transform: translateY(-5px); /* Efek mengangkat saat hover */
+  }
+  
+  .inventory-table tr:hover td {
+    background-color: #8e24aa;
+    color: white;
+  }
+  
+  /* Tombol Formulir Peminjaman */
+  .form-section {
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 2s ease-out;
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-section h3 {
+    font-size: 2rem;
+    color: #d81b60; /* Warna pastel pink */
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  .form-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #ab47bc; /* Warna tombol ungu pastel */
+    color: #fff;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    max-width: 300px; /* Mengatur tombol agar tidak terlalu lebar */
+    margin-top: 20px; /* Menambahkan jarak atas tombol */
+    text-align: center;
+  }
+  
+  .btn:hover {
+    background-color: #8e24aa;
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    background-color: #f8bbd0;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer p {
+    margin: 0;
+    color: #ab47bc;
+    font-size: 1rem;
+  }
+  
